@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Image Gallery — Navbar (Separate files)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#" class="brand" aria-label="Go to home">
+        <span class="logo" aria-hidden="true"></span>
+        Gallery<span class="brand-sub">Pro</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <ul role="menubar" aria-label="Primary">
+          <li role="none"><a role="menuitem" class="active" href="#home">Home</a></li>
+          <li role="none"><a role="menuitem" href="#gallery">Gallery</a></li>
+          <li role="none"><a role="menuitem" href="#collectionsSection" id="collectionsNavLink">Collections</a></li>
+          <li role="none"><a role="menuitem" href="#about">About</a></li>
+          <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <form id="navSearchForm" onsubmit="return false;" role="search" aria-label="Search images">
+            <input id="navSearch" type="search" placeholder="Search images..." aria-label="Search images" />
+          </form>
+          <button id="uploadBtn" class="btn-upload" type="button">Upload</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Example content so navbar behavior is visible -->
+  <main>
+    <section id="home" class="hero">
+      <!-- <h1>Your Image Gallery</h1> -->
+    
+      <img src="images/gallery.jpg" alt="You do not see the full image">
+    </section>
+
+    <section id="gallery" class="gallery-placeholder">
+      <!-- Put your gallery grid or carousel here -->
+      <!-- <p style="text-align:center;padding:2rem 1rem;color:#555">Gallery grid goes here.</p> -->
+   
+
+
+    <main class="container">
+    <h1 class="title">My Gallery</h1>
+
+    <!-- GALLERY GRID: replace src and data-large with your images -->
+    <section id="galleryGrid" class="grid" aria-label="Image gallery">
+      <figure class="gallery-item" data-index="0">
+        <img src="images/1.jpg" data-large="images/1.jpg" alt="Image 1" loading="lazy">
+      </figure>
+      <figure class="gallery-item" data-index="1">
+        <img src="images/2.jpg" data-large="images/2.jpg" alt="Image 2" loading="lazy">
+      </figure>
+      <figure class="gallery-item" data-index="2">
+        <img src="images/3.jpg" data-large="images/3.jpg" alt="Image 3" loading="lazy">
+      </figure>
+      <figure class="gallery-item" data-index="3">
+        <img src="images/4.jpg" data-large="images/4.jpg" alt="Image 4" loading="lazy">
+      </figure>
+      <figure class="gallery-item" data-index="4">
+        <img src="images/5.jpg" data-large="images/5.jpg" alt="Image 5" loading="lazy">
+      </figure>
+      <figure class="gallery-item" data-index="5">
+        <img src="images/6.jpg" data-large="images/6.jpg" alt="Image 6" loading="lazy">
+      </figure>
+      <!-- Add more <figure> blocks as needed -->
+    </section>
+  </main>
+
+  <!-- LIGHTBOX (simple) -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button id="lbClose" class="lb-close" aria-label="Close">&times;</button>
+    <button id="lbPrev" class="lb-nav lb-prev" aria-label="Previous">&#10094;</button>
+    <div class="lb-stage" id="lbStage" tabindex="0">
+      <img id="lbImage" src="" alt="">
+      <figcaption id="lbCaption" class="lb-caption"></figcaption>
+    </div>
+    <button id="lbNext" class="lb-nav lb-next" aria-label="Next">&#10095;</button>
+  </div>
+
+   </section>
+  </main>
+
+
+
+  <!-- Collections section -->
+<section id="collectionsSection" class="collections-section" aria-label="Collections">
+  <div class="collections-header">
+    <h2>Collections</h2>
+    <div class="collections-actions">
+      <button id="showAllBtn" class="btn">Show All</button>
+    </div>
+    <section id="gallery" class="grid" aria-label="Image gallery">
+  <!-- your two images -->
+  <figure class="gallery-item" data-collections="nature,landscape">
+    <img src="https://picsum.photos/seed/101/400/300"
+         data-large="https://picsum.photos/seed/101/1200/900"
+         alt="Test 1">
+  </figure>
+
+  <figure class="gallery-item" data-collections="city,featured">
+    <img src="https://picsum.photos/seed/102/400/300"
+         data-large="https://picsum.photos/seed/102/1200/900"
+         alt="Test 2">
+  </figure>
+
+  <!-- add more images the same way -->
+  <figure class="gallery-item" data-collections="nature,forest">
+    <img src="https://picsum.photos/seed/103/400/300" data-large="https://picsum.photos/seed/103/1200/900" alt="Test 3">
+  </figure>
+  <figure class="gallery-item" data-collections="city,night">
+    <img src="https://picsum.photos/seed/104/400/300" data-large="https://picsum.photos/seed/104/1200/900" alt="Test 4">
+  </figure>
+  <figure><img src="images/2.jpg" alt="Error is occurred"></figure>
+  <figure><img src="images/3.jpg" alt="Error is occurred"></figure>
+  <figure><img src="images/4.jpg" alt="Error is occurred"></figure>
+  <figure><img src="images/5.jpg" alt="Error is occurred"></figure>
+  <figure><img src="images/6.jpg" alt="Error is occurred"></figure>
+</section>
+
+<!-- after adding images dynamically, run (optional): -->
+<script>
+  // if you included the collections & lightbox scripts I gave earlier:
+  window.galleryCollections?.render && window.galleryCollections.render();
+  window.galleryLightbox?.refresh && window.galleryLightbox.refresh();
+</script>
+
+  </div>
+
+</section>
+
+
+<!-- <button id="showAllBtn">Show All</button> -->
+
+<div id="gallery">
+  <figure class="gallery-item" style="display:none;">
+    <img src="https://picsum.photos/seed/101/400/300" alt="Test 1">
+  </figure>
+  <figure class="gallery-item" style="display:none;">
+    <img src="https://picsum.photos/seed/102/400/300" alt="Test 2">
+  </figure>
+  <figure class="gallery-item" style="display:none;">
+    <img src="https://picsum.photos/seed/103/400/300" alt="Test 3">
+  </figure>
+</div>
+
+
+
+<section id="about" class="about-section">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>About Our Gallery</h2>
+      <p>Welcome to our  gallery, a curated space for breathtaking visuals.</p>
+      <p>From vibrant cityscapes to serene landscapes, every collection is handpicked for quality and uniqueness.</p>
+      <p>Our mission is to connect art lovers with stunning imagery that inspires creativity and emotion.</p>
+      <p>Browse our curated categories or explore everything at once — your visual journey starts here.</p>
+      <a href="#gallery" class="about-btn">Explore Gallery</a>
+    </div>
+    <div class="about-image">
+      <img src="https://picsum.photos/seed/about/500/350" alt="About Our Gallery">
+    </div>
+  </div>
+</section>
+
+
+
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <div class="contact-text">
+      <h2>Contact Us</h2>
+      <p>Have questions, suggestions, or collaboration ideas? We’d love to hear from you!</p>
+      <p>Fill out the form or reach us directly via email and social media.</p>
+      <ul>
+        <li><strong>Email:</strong> raocaptain8@gmail.com</li>
+        <li><strong>Phone:</strong> +92 300 1234567</li>
+        <li><strong>Address:</strong> Lahore, Pakistan</li>
+      </ul>
+    </div>
+
+    <div class="contact-form">
+      <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
